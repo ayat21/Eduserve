@@ -1,0 +1,132 @@
+
+
+<nav class="navbar-fixed-top navbar navbar-expand-lg navbar-dark fixed-top"  id="mainNav">
+  <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+          <img src="../../assets/logo.png" alt="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+
+           <li class="nav-item">
+            <a class="nav-link"
+               [routerLink]="['/courses']"
+               routerLinkActive="active" >
+               Courses List</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link"
+               [routerLink]="['/courses', 0, 'edit']"
+               routerLinkActive="active">Add Course</a>
+          </li>
+           <li class="nav-item"
+            >
+         <a class="nav-link"
+            [routerLink]="['/login']">Welcome {{ userName }}</a>
+       </li>
+       <li class="nav-item"
+        *ngIf="!isMessageDisplayed">
+      <a class="nav-link"
+         (click)="displayMessages()">Show Messages</a>
+    </li>
+    <li class="nav-item"
+        *ngIf="isMessageDisplayed">
+      <a class="nav-link"
+         (click)="hideMessages()">Hide Messages</a>
+    </li>
+       <li class="nav-item"
+        >
+     <a class="nav-link"
+        (click)="logOut()">Log Out</a>
+   </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<div class="row">
+  <div class="col-md-10">
+    <div class="card" style="margin-top: 100px;">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-2">Filter by:</div>
+          <div class="col-md-4">
+            <input type="text"
+                   [(ngModel)]="listFilter" />
+          </div>
+        </div>
+        <div class="row"
+             *ngIf="listFilter">
+          <div class="col-md-6">
+            <h4>Filtered by: {{listFilter}}</h4>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table mb-0" >
+            <thead>
+              <tr>
+                <th>
+                  <button class="btn btn-outline-primary btn-sm"
+                          (click)="toggleImage()">
+                    {{showImage ? "Hide" : "Show"}} Image
+                  </button>
+                </th>
+                <th>Course</th>
+                <th>Code</th>
+                <th>Available</th>
+                <th>Price</th>
+                <th>5 Star Rating</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let course of filteredCourses">
+                <td>
+                  <img *ngIf="showImage && course.imageUrl"
+                       [src]="course.imageUrl"
+                       [title]="course.courseName"
+                       [style.width.px]="imageWidth"
+                       [style.margin.px]="imageMargin">
+                </td>
+                <td>
+                  <a [routerLink]="[course.id]"
+                     [queryParams]="{filterBy: listFilter, showImage: showImage}">
+                    {{ course.courseName }}
+                  </a>
+                </td>
+                <td>{{ course.courseCode }}</td>
+                <td>{{ course.releaseDate }}</td>
+                <td>{{ course.price | currency:"USD":"symbol":"1.2-2" }}</td>
+                <td>
+                  <app-star [rating]="course.starRating">
+                  </app-star>
+                </td>
+                <td>
+                  <button class="btn btn-outline-primary btn-sm"
+                          [routerLink]="[course.id, 'edit']">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage"
+         class="alert alert-danger">
+      Error: {{ errorMessage }}
+    </div>
+  </div>
+  <div class="col-md-2">
+    <router-outlet name="popup"></router-outlet>
+  </div>
+</div>
+
+

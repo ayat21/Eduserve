@@ -1,0 +1,14 @@
+@import "../node_modules/@syncfusion/ej2-navigations/styles/material.css"; 
+
+@import '~font-awesome/css/font-awesome.css';
+#target {
+    border: 1px dashed;
+    height: 150px;
+    padding: 10px;
+    position: relative;
+    text-align: justify;
+    color: gray;
+    user-select: none;
+}
+
+

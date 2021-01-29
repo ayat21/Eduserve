@@ -1,0 +1,105 @@
+
+<nav class="navbar-fixed-top navbar navbar-expand-lg navbar-dark fixed-top"  id="mainNav">
+  <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+          <img src="../../assets/logo.png" alt="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                 <a class="nav-link js-scroll-trigger" href="#eduservices-home">Home</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#eduservices-why-choose-us">Services</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#eduservices-teacher">Teachers</a>
+              </li>
+              <li class="nav-item">
+                   <a class="nav-link js-scroll-trigger" href="#eduservices-blog">Blog</a>
+              </li>
+              <li class="nav-item">
+                   <a class="nav-link js-scroll-trigger"  >Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger"  [routerLink]="['/login']">Login</a>
+             </li>
+
+             <!-- <li class="nav-item">
+              <a class="nav-link js-scroll-trigger"
+               [routerLink]="['/courses']"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact : true}">courses</a>
+           </li> -->
+           
+       
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<section id="eduservices-contact" class="contact-area ptb-100">
+  <div class="container">
+
+
+    <div class="row" style="margin-top: 150px;">
+
+
+      <div class="col-lg-3"></div>
+
+      <div class="col-lg-6 col-md-12 wow rotateIn" data-wow-offset="10"
+      data-wow-duration="1.5s">
+        <!-- <form id="contactForm"> -->
+        <form method="post" class="contactForm"
+         novalidate (ngSubmit)="login(loginForm)"
+         #loginForm="ngForm"
+          autocomplete="off">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="form-group">
+                <input type="text" class="form-control"
+                 id="userNameId" type="text" placeholder="User Name (required)"
+                  required ngModel name="userName" #userNameVar="ngModel"
+                  [ngClass]="{'is-invalid': (userNameVar.touched || userNameVar.dirty)
+                   && !userNameVar.valid }">
+                <span class="invalid-feedback">
+                  <span *ngIf="userNameVar.errors?.required">
+                    User name is required.
+                  </span>
+                </span>
+              </div>
+
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+              <div class="form-group">
+                <input type="email" class="form-control" id="passwordId" type="password"
+                  placeholder="Password (required)" required ngModel name="password"
+                  #passwordVar="ngModel"
+                  [ngClass]="{'is-invalid': (passwordVar.touched || passwordVar.dirty) && !passwordVar.valid }" />
+                <span class="invalid-feedback">
+                  <span *ngIf="passwordVar.errors?.required">
+                    Password is required.
+                  </span>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+              <button style="  margin-top: 10px;"
+               type="submit"
+                [disabled]="!loginForm.valid" class="btn">Log In</button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+  </div>
+</section>
+ 

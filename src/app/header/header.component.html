@@ -1,0 +1,77 @@
+<!-- <nav class="navbar-fixed-top navbar navbar-expand-lg navbar-dark fixed-top"  id="mainNav">
+  <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+          <img src="../../assets/logo.png" alt="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+
+           <li class="nav-item">
+            <a class="nav-link"
+               [routerLink]="['/courses']"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact : true}">Courses List</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link"
+               [routerLink]="['/courses', 0, 'edit']"
+               routerLinkActive="active">Add Course</a>
+          </li>
+           <li class="nav-item"
+           *ngIf="isLoggedIn">
+         <a class="nav-link"
+            [routerLink]="['/login']">Welcome {{ userName }}</a>
+       </li>
+       <li class="nav-item"
+        *ngIf="!isMessageDisplayed">
+      <a class="nav-link"
+         (click)="displayMessages()">Show Messages</a>
+    </li>
+    <li class="nav-item"
+        *ngIf="isMessageDisplayed">
+      <a class="nav-link"
+         (click)="hideMessages()">Hide Messages</a>
+    </li>
+       <li class="nav-item"
+       *ngIf="isLoggedIn">
+     <a class="nav-link"
+        (click)="logOut()">Log Out</a>
+   </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+<div id="eduservices-home" class="main-banner main-banner-show">
+  <div class="d-table">
+      <div class="d-table-cell">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12 col-md-12 reveal-left-fade">
+                    <div  class=" wow fadeInLeft" data-wow-delay=".5s" >
+                      <div id="carouselExampleIndicators" class="carousel slide"
+                      data-ride="carousel"  >
+                        <ol   class="carousel-indicators">
+                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        </ol>
+                        <div style="color: white;" class="carousel-inner">
+                          <div class="carousel-item active">
+                            <i style="font-size: 150px; " class=" icofont-network"></i>
+                          </div>
+                          <div class="carousel-item ">
+                            <i style="font-size: 150px; " class=" icofont-network"></i>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div> -->
